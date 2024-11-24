@@ -6,6 +6,7 @@
 namespace my_stl{
     template<typename T>
     class queue{
+    public:
 
 
     };
