@@ -21,5 +21,6 @@ add_executable(my_cpp_stl_by_clion test/main.cpp
         source/numeric.cpp
         include/iterator.h
         include/functional.h
+        include/type_traits.h
 )
 
