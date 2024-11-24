@@ -15,5 +15,6 @@ add_executable(my_cpp_stl_by_clion test/main.cpp
         include/constructor.h
         include/map.h
         source/allocator.cpp
+        source/constructor.cpp
 )
 

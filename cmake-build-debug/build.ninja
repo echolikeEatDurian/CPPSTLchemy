@@ -61,6 +61,12 @@ build CMakeFiles/my_cpp_stl_by_clion.dir/source/allocator.cpp.obj: CXX_COMPILER_
   OBJECT_DIR = CMakeFiles\my_cpp_stl_by_clion.dir
   OBJECT_FILE_DIR = CMakeFiles\my_cpp_stl_by_clion.dir\source
 
+build CMakeFiles/my_cpp_stl_by_clion.dir/source/constructor.cpp.obj: CXX_COMPILER__my_cpp_stl_by_clion_unscanned_Debug E$:/A_STUDY/A_CPP_PROJECT/MY_CPP_STL/my_cpp_stl_by_clion/source/constructor.cpp || cmake_object_order_depends_target_my_cpp_stl_by_clion
+  DEP_FILE = CMakeFiles\my_cpp_stl_by_clion.dir\source\constructor.cpp.obj.d
+  FLAGS = -g -std=gnu++11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\my_cpp_stl_by_clion.dir
+  OBJECT_FILE_DIR = CMakeFiles\my_cpp_stl_by_clion.dir\source
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target my_cpp_stl_by_clion
@@ -69,7 +75,7 @@ build CMakeFiles/my_cpp_stl_by_clion.dir/source/allocator.cpp.obj: CXX_COMPILER_
 #############################################
 # Link the executable my_cpp_stl_by_clion.exe
 
-build my_cpp_stl_by_clion.exe: CXX_EXECUTABLE_LINKER__my_cpp_stl_by_clion_Debug CMakeFiles/my_cpp_stl_by_clion.dir/test/main.cpp.obj CMakeFiles/my_cpp_stl_by_clion.dir/source/allocator.cpp.obj
+build my_cpp_stl_by_clion.exe: CXX_EXECUTABLE_LINKER__my_cpp_stl_by_clion_Debug CMakeFiles/my_cpp_stl_by_clion.dir/test/main.cpp.obj CMakeFiles/my_cpp_stl_by_clion.dir/source/allocator.cpp.obj CMakeFiles/my_cpp_stl_by_clion.dir/source/constructor.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\my_cpp_stl_by_clion.dir
