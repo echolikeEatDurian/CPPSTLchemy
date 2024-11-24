@@ -25,22 +25,10 @@ namespace  my_stl{
         static void construct(T* ptr);
         static void construct(T* ptr,const T& value);
         static void construct(T* ptr,const T&& value);
-
         template<typename... Args>
         static void construct(T* ptr,Args&& ...args);
         static void destroy(T* ptr);
         static void destroy(T* first,T* last);
-
-
-
-
     };
-
-
 }
-
-
-
-
-
 #endif //MY_CPP_STL_BY_CLION_ALLOCATOR_H

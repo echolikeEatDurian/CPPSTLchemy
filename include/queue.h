@@ -3,5 +3,13 @@
 
 #ifndef MY_CPP_STL_BY_CLION_QUEUE_H
 #define MY_CPP_STL_BY_CLION_QUEUE_H
+namespace my_stl{
+    template<typename T>
+    class queue{
+
+
+    };
+}
+
 
 #endif //MY_CPP_STL_BY_CLION_QUEUE_H

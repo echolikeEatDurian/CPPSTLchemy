@@ -8,7 +8,7 @@ namespace my_stl{
     template<typename T>
 
    class constructor{
-
+   public:
        void construct(T* ptr);
 
        template<typename T2>
@@ -26,24 +26,6 @@ namespace my_stl{
 
        template<typename... Args>
        void construct(T* ptr,Args&& ...args);
-
-
-
-
-
-
-
-
-
-
-
    };
-
-
-
-
 }
-
-
-
 #endif //MY_CPP_STL_BY_CLION_CONSTRUCTOR_H

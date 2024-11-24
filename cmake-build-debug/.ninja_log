@@ -1,5 +1,5 @@
 # ninja log v6
-2	746	7541152671604231	build.ninja	c2b49567a170c7e2
+2	746	7541482873546255	build.ninja	c2b49567a170c7e2
 84	380	7541139587145822	CMakeFiles/my_cpp_stl_by_clion.dir/source/allocator.cpp.obj	9cecddf3d9b9b1bb
 5	488	7541140645065003	CMakeFiles/my_cpp_stl_by_clion.dir/test/main.cpp.obj	bad446815b2e1b9c
 488	771	7541140649898702	my_cpp_stl_by_clion.exe	301b118057e799a1
