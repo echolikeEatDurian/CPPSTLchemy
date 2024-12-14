@@ -37,7 +37,6 @@ namespace my_stl{
          */
         struct plus:public binary_function<T,T,T>{
             T operator() (const T&x,const T &y) const {return  x + y ; }
-
         };
 
         /**
@@ -45,7 +44,6 @@ namespace my_stl{
          */
         struct minus:public binary_function<T,T,T>{
             T operator() (const T&x,const T &y) const {return  x - y ; }
-
         };
 
         /**
@@ -53,7 +51,6 @@ namespace my_stl{
          */
         struct multiples:public binary_function<T,T,T>{
             T operator() (const T&x,const T &y) const {return  x * y ; }
-
         };
 
         /**
@@ -61,7 +58,6 @@ namespace my_stl{
          */
         struct divides:public binary_function<T,T,T>{
             T operator() (const T&x,const T &y) const {return  x / y ; }
-
         };
 
         /**
@@ -69,7 +65,6 @@ namespace my_stl{
          */
         struct modulus:public binary_function<T,T,T>{
             T operator() (const T&x,const T &y) const {return  x % y ; }
-
         };
 
         /**
@@ -96,7 +91,6 @@ namespace my_stl{
          */
         struct equal_to:public binary_function<T,T,T>{
             bool operator() (const T& x,const T&y) const {return x == y ;}
-
         };
 
         /**
@@ -104,7 +98,6 @@ namespace my_stl{
          */
         struct no_equal_to:public binary_function<T,T,T>{
             bool operator() (const T& x,const T&y) const {return x != y ;}
-
         };
 
         /**

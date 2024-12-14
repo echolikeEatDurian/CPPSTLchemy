@@ -7,6 +7,7 @@ namespace my_stl{
     template<typename InputPointer, typename T>
     class numeric{
     public:
+
         T accumulate(InputPointer first,InputPointer last ,T init);//求和
         template<typename _operator>
         T accumulate(InputPointer first,InputPointer last ,T init,_operator op);//指定运算符计算
@@ -26,7 +27,6 @@ namespace my_stl{
 
         template<typename OutPutPointer>
         OutPutPointer partial_sum(InputPointer first,InputPointer last,OutPutPointer result); //计算前缀和
-
 
         template<typename OutPutPointer,typename _operator>
         OutPutPointer partial_sum(InputPointer first,InputPointer last,_operator op,OutPutPointer result); //计算前缀数学运算

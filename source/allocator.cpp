@@ -3,7 +3,6 @@
 
 
 namespace my_stl{
-
     /**
      * 该函数定义一个内存分配器
      * @tparam T 参数类型
