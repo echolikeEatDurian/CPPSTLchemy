@@ -22,5 +22,9 @@ add_executable(my_cpp_stl_by_clion test/main.cpp
         include/iterator.h
         include/functional.h
         include/type_traits.h
+        include/astring.h
+        source/finctional.cpp
+        source/exception.cpp
+        source/type_traits.cpp
 )
 

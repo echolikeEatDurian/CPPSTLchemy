@@ -1,5 +1,6 @@
 
 #include "../include/constructor.h"
+#include "../include/type_traits.h"
 
 namespace my_stl{
     /**
@@ -9,7 +10,7 @@ namespace my_stl{
      */
     template<typename T>
     void constructor<T>::construct(T* ptr){
-
+        return ::new ((void*)ptr) T();
     }
 
     /**
@@ -22,8 +23,7 @@ namespace my_stl{
     template<typename T>
     template<typename T2>
     void constructor<T>::construct(T* ptr,const T2& value){
-
-
+        ::new ((void*)ptr) T(value);
     }
 
     /**
@@ -37,7 +37,6 @@ namespace my_stl{
     template<typename... Args>
     void constructor<T>::construct(T* ptr,Args&& ...args){
 
-
     }
 
     /**
@@ -46,7 +45,7 @@ namespace my_stl{
      * @param ptr
      */
     template<typename T>
-    void constructor<T>::destroy(T* ptr,std::true_type){
+    void constructor<T>::destroy_one(T* ptr,std::true_type){
 
 
     }
@@ -56,19 +55,19 @@ namespace my_stl{
      * @param ptr
      */
     template<typename T>
-    void constructor<T>::destroy(T* ptr,std::false_type){
-
-
+    void constructor<T>::destroy_one(T* ptr,std::false_type){
+        if(nullptr == ptr ) return;
+        ptr->~T();
     }
 
     /**
-     *
+     *没有实现
      * @tparam T
      * @tparam ForwardIter
      */
     template<typename T>
     template <typename ForwardIter>
-    void constructor<T>::destroy(ForwardIter,ForwardIter,std::true_type ){
+    void constructor<T>::destroy_cat(ForwardIter,ForwardIter,std::true_type ){
 
 
     }
@@ -82,11 +81,32 @@ namespace my_stl{
      */
     template<typename T>
     template <typename ForwardIter>
-    void constructor<T>::destroy(ForwardIter first,ForwardIter last,std::false_type ){
-
-
+    void constructor<T>::destroy_cat(ForwardIter first,ForwardIter last,std::false_type ){
+        for( ; first  != last ; ++first){
+            destroy_one(&*first);
+        }
     }
 
+    /**
+     *
+     * @tparam T
+     * @tparam ForwardIter
+     * @param ptr
+     */
+    template<typename T>
+    void constructor<T>::destroy(T *ptr) {
+        destroy_one(ptr,std::is_trivially_destructible<T>());
+    }
 
+    /**
+     *
+     * @tparam T
+     * @tparam ForwardIter
+     * @param ptr
+     */
+    template<typename T>
+    template <typename ForwardIter>
+    void constructor<T>::destroy(ForwardIter first,ForwardIter last) {
 
+    }
 }

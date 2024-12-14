@@ -109,7 +109,7 @@ namespace my_stl{
      */
     template<typename T>
     void allocator<T>::destroy(T *ptr) {
-
+        constructor<T>::destroy(ptr);
 
     }
 
@@ -117,17 +117,12 @@ namespace my_stl{
     /***
      * 释放连续的内存块
      * @tparam T
+     * @tparam T
      * @param first
      * @param last
      */
     template<typename T>
     void allocator<T>::destroy(T *first,T*last) {
-
-
-
+        constructor<T>::destroy(first,last);
     }
-
-
-
-
 }

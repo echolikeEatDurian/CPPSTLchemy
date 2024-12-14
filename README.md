@@ -304,3 +304,81 @@ Basic version c++ stl library implemented based on clion editor
 这些函数构成了分配器的核心功能，使其能高效管理内存和对象生命周期，适配各种复杂场景，尤其是在泛型容器的实现中。
 
 
+# type_trait
+这个头文件 `type_traits.h` 定义了用于类型信息提取的一些工具和类型特征（type traits）。它主要包含两个部分：
+
+1. **`m_integral_constant` 及其扩展**：用于创建常量类型特征。
+2. **类型特征（type traits）**：如 `is_pair`，用于检查某个类型是否为特定类型。
+
+### 1. `m_integral_constant` 和 `m_bool_constant`
+
+#### `m_integral_constant`
+这是一个模板结构体，允许定义一个常量的类型特征：
+
+```cpp
+template <class T, T v>
+struct m_integral_constant
+{
+  static constexpr T value = v;
+};
+```
+
+- `T` 是类型，`v` 是一个常量值。
+- `m_integral_constant` 通过 `value` 成员暴露了一个常量值 `v`，它具有类型 `T`。
+
+  例如，可以定义一个整数常量类型：
+
+  ```cpp
+  typedef m_integral_constant<int, 42> my_constant;
+  // my_constant::value 是 42，类型是 int
+  ```
+
+#### `m_bool_constant`
+`m_bool_constant` 是 `m_integral_constant` 的一个特化，用于表示布尔常量。它通过类型别名实现：
+
+```cpp
+template <bool b>
+using m_bool_constant = m_integral_constant<bool, b>;
+```
+
+- 它专门为 `bool` 类型的常量值提供了一种简便的方式。
+
+  例如：
+
+  ```cpp
+  typedef m_bool_constant<true>  m_true_type;  // 类型表示 true
+  typedef m_bool_constant<false> m_false_type; // 类型表示 false
+  ```
+
+  这样，`m_true_type` 和 `m_false_type` 就是表示 `true` 和 `false` 的类型特征。
+
+### 2. `is_pair` 类型特征
+
+`is_pair` 是一个类型特征（type trait），用于检查一个类型是否是 `pair` 类型：
+
+```cpp
+template <class T1, class T2>
+struct pair; // 前置声明
+
+template <class T>
+struct is_pair : mystl::m_false_type {};  // 默认不是 pair 类型
+
+template <class T1, class T2>
+struct is_pair<mystl::pair<T1, T2>> : mystl::m_true_type {};  // 如果是 pair 类型，返回 true
+```
+
+- `is_pair` 是一个模板结构体，用于判断一个类型是否是 `pair<T1, T2>` 类型。
+- 默认情况下，`is_pair` 继承自 `m_false_type`，表示它不是 `pair` 类型。
+- 当类型是 `pair<T1, T2>` 时，`is_pair` 会继承自 `m_true_type`，表示它是 `pair` 类型。
+
+例如，使用这个类型特征来检查类型是否为 `pair` 类型：
+
+```cpp
+static_assert(is_pair<mystl::pair<int, double>>::value, "It's a pair!");
+static_assert(!is_pair<int>::value, "It's not a pair!");
+```
+
+### 总结
+
+- **`m_integral_constant`** 和 **`m_bool_constant`** 用于定义常量值和布尔常量类型特征，可以在模板元编程中用来传递类型信息。
+- **`is_pair`** 是一个示例类型特征，它帮助判断一个类型是否是 `pair` 类型，这对于模板编程非常有用，可以根据类型进行不同的处理。
